@@ -4,6 +4,19 @@ let restaurants,
 var newMap
 var markers = []
 
+/** 
+ * Regestring a service worker
+ */
+
+ if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js', {scope: './'}).then(function(registration) {
+    console.log('Registration worked')
+  })
+  .catch(function(err) {
+    console.log('Registration failed!', err)
+  });
+ }
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
